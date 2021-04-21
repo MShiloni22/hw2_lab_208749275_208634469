@@ -1,4 +1,3 @@
-import math
 
 
 def median(list_of_values):
@@ -32,12 +31,15 @@ def covariance(first_list_of_values, second_list_of_values):
     n = len(first_list_of_values)
     first_mean = mean(first_list_of_values)
     second_mean = mean(second_list_of_values)
-    first_second = [first_list_of_values[i] * second_list_of_values[i] for i in range(n)]
-    result += (sum(first_second) - n*first_mean * second_mean) / float(n)
+    first_second = [first_list_of_values[i] * second_list_of_values[i] for i in range(n)]    # multiply x*y accordingly
+    result += (sum(first_second) - n*first_mean * second_mean) / float(n-1)
     return result
 
 
 def correlation(first_list_of_values, second_list_of_values):
     result = 0
-
+    # correlation components:
+    first_std = variance(first_list_of_values)**0.5
+    second_std = variance(second_list_of_values)**0.5
+    result += (covariance(first_list_of_values, second_list_of_values) / first_std * second_std)
     return result
