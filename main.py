@@ -67,6 +67,8 @@ def run_analysis():
                     weakest_pair[1] = keys1
                 low_correlation = correlation(data[keys1], data[keys2])
 
+    print(correlation(data['alcohol'], data['density']))
+
     print('The strongest linear relationship is between: "{}","{}". '
           'The value is: {:.4f}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
     print('The weakest linear relationship is between: "{}","{}". '
