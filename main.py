@@ -42,9 +42,9 @@ def run_analysis():
             feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values)**0.5))
 
     strongest_pair = ["aaa", "bbb"]
-    high_correlation = -0.9
+    high_correlation = 0.0
     weakest_pair = ["aaa", "bbb"]
-    low_correlation = 0.1
+    low_correlation = 1.0
     # here you should compute correlations. Be careful, pair should be sorted before printing
     for i, keys1 in enumerate(data):
         for j, keys2 in enumerate(data):
@@ -66,8 +66,6 @@ def run_analysis():
                     weakest_pair[0] = keys2
                     weakest_pair[1] = keys1
                 low_correlation = correlation(data[keys1], data[keys2])
-
-    print(correlation(data['alcohol'], data['sulphates']))
 
     print('The strongest linear relationship is between: "{}","{}". '
           'The value is: {:.4f}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
