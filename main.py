@@ -55,16 +55,16 @@ def run_analysis():
                     strongest_pair[0] = keys1
                     strongest_pair[1] = keys2
                 else:
-                    strongest_pair[0] = keys1
-                    strongest_pair[1] = keys2
+                    strongest_pair[0] = keys2
+                    strongest_pair[1] = keys1
                 high_correlation = correlation(data[keys1], data[keys2])
             if correlation(data[keys1], data[keys2]) < low_correlation:
                 if keys1 < keys2:
                     weakest_pair[0] = keys1
                     weakest_pair[1] = keys2
                 else:
-                    weakest_pair[0] = keys1
-                    weakest_pair[1] = keys2
+                    weakest_pair[0] = keys2
+                    weakest_pair[1] = keys1
                 low_correlation = correlation(data[keys1], data[keys2])
 
     print('The strongest linear relationship is between: "{}","{}". '
