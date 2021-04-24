@@ -41,5 +41,5 @@ def correlation(first_list_of_values, second_list_of_values):
     # correlation components:
     first_std = variance(first_list_of_values)**0.5
     second_std = variance(second_list_of_values)**0.5
-    result += (covariance(first_list_of_values, second_list_of_values) / first_std * second_std)
+    result += (covariance(first_list_of_values, second_list_of_values) / (first_std * second_std))
     return result
