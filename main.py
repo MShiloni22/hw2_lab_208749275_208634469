@@ -29,7 +29,7 @@ def load_data(path):
 
 
 def run_analysis():
-    file_path = './winequality_2.csv'
+    file_path = './winequality.csv'
     data = load_data(file_path)
 
     # first way of printing. Everything casted to string, and spaces put automatically between passed values.
