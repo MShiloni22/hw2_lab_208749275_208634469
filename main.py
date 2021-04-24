@@ -41,17 +41,37 @@ def run_analysis():
         print('"{}". Mean: {:3.2f}, Median: {:.2f}, Std: {:.4f}'.format(
             feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values)**0.5))
 
-    # here you should compute correlations. Be careful, pair should be sorted before printing
-    strongest_pair = ("aaa", "bbb")
+    strongest_pair = ["aaa", "bbb"]
     high_correlation = -0.9
+    weakest_pair = ["aaa", "bbb"]
+    low_correlation = 0.1
+    # here you should compute correlations. Be careful, pair should be sorted before printing
+    for i, keys1 in enumerate(data):
+        for j, keys2 in enumerate(data):
+            if j <= i:
+                continue
+            if correlation(data[keys1], data[keys2]) > high_correlation:
+                if keys1 < keys2:
+                    strongest_pair[0] = keys1
+                    strongest_pair[1] = keys2
+                else:
+                    strongest_pair[0] = keys1
+                    strongest_pair[1] = keys2
+                high_correlation = correlation(data[keys1], data[keys2])
+            if correlation(data[keys1], data[keys2]) < low_correlation:
+                if keys1 < keys2:
+                    weakest_pair[0] = keys1
+                    weakest_pair[1] = keys2
+                else:
+                    weakest_pair[0] = keys1
+                    weakest_pair[1] = keys2
+                low_correlation = correlation(data[keys1], data[keys2])
+
     print('The strongest linear relationship is between: "{}","{}". '
           'The value is: {}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
-
-    weakest_pair = ("aaa", "bbb")
-    low_correlation = 0.1
     print('The weakest linear relationship is between: "{}","{}". '
           'The value is: {}'.format(*weakest_pair, low_correlation))  # * converts list to arguments.
-    # Line 53 is equivalent to line 48, this is just other way to use list as arguments
+    # Line 53 is equivalent to line 48, this is just other way to use
 
 
 if __name__ == '__main__':
