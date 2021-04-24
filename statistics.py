@@ -32,7 +32,7 @@ def covariance(first_list_of_values, second_list_of_values):
     first_mean = mean(first_list_of_values)
     second_mean = mean(second_list_of_values)
     first_second = [first_list_of_values[i] * second_list_of_values[i] for i in range(n)]    # multiply x*y accordingly
-    result += (sum(first_second) - n*first_mean * second_mean) / float(n-1)
+    result += (sum(first_second) - (n*first_mean * second_mean)) / float(n-1)
     return result
 
 

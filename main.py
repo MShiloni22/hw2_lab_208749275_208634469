@@ -68,9 +68,9 @@ def run_analysis():
                 low_correlation = correlation(data[keys1], data[keys2])
 
     print('The strongest linear relationship is between: "{}","{}". '
-          'The value is: {}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
+          'The value is: {:.4f}'.format(strongest_pair[0], strongest_pair[1], high_correlation))
     print('The weakest linear relationship is between: "{}","{}". '
-          'The value is: {}'.format(*weakest_pair, low_correlation))  # * converts list to arguments.
+          'The value is: {:.4f}'.format(*weakest_pair, low_correlation))  # * converts list to arguments.
     # Line 53 is equivalent to line 48, this is just other way to use
 
 
