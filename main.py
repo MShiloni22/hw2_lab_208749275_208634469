@@ -45,12 +45,12 @@ def run_analysis():
     high_correlation = 0.0
     weakest_pair = ["aaa", "bbb"]
     low_correlation = 1.0
-    # here you should compute correlations. Be careful, pair should be sorted before printing
+    # compares correlation between all keys in data dictionary
     for i, keys1 in enumerate(data):
         for j, keys2 in enumerate(data):
             if j <= i:
                 continue
-            if abs(correlation(data[keys1], data[keys2])) > abs(high_correlation):
+            if abs(correlation(data[keys1], data[keys2])) > abs(high_correlation): # strong correlation - far from 0
                 if keys1 < keys2:
                     strongest_pair[0] = keys1
                     strongest_pair[1] = keys2
@@ -58,7 +58,7 @@ def run_analysis():
                     strongest_pair[0] = keys2
                     strongest_pair[1] = keys1
                 high_correlation = correlation(data[keys1], data[keys2])
-            if abs(correlation(data[keys1], data[keys2])) < abs(low_correlation):
+            if abs(correlation(data[keys1], data[keys2])) < abs(low_correlation): # weak correlation - close to 0
                 if keys1 < keys2:
                     weakest_pair[0] = keys1
                     weakest_pair[1] = keys2
